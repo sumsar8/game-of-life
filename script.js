@@ -1,7 +1,7 @@
 var c = document.getElementById("myCanvas");
 var ctx = c.getContext("2d");
 
-const mapsize = 100;
+const mapsize = 200;
 
 let currmap = [];
 
@@ -31,11 +31,7 @@ draw();
 
 //random 0 eller 1
 function random() {
-    if (Math.random() > 0.2) {
-        return 0;
-    } else {
-        return 1;
-    }
+    return Math.round(Math.random());
 }
 
 let tempmap = [];
@@ -119,3 +115,6 @@ function randomize() {
     }
     draw();
 }
+setInterval(() => {
+    next();
+}, 50);
