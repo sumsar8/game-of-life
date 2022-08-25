@@ -31,7 +31,11 @@ draw();
 
 //random 0 eller 1
 function random() {
-    return Math.round(Math.random());
+    if (Math.random() > 0.2) {
+        return 0;
+    } else {
+        return 1;
+    }
 }
 
 let tempmap = [];
@@ -46,7 +50,7 @@ function check() {
     for (let i = 1; i < mapsize - 1; i++) {
         for (let j = 1; j < mapsize - 1; j++) {
             if (currmap[i][j] == 0) {
-                if (neighbors(i, j) > 3) {
+                if (neighbors(i, j) == 3) {
                     tempmap[i][j] = 1;
                 } else {
                     tempmap[i][j] = 0;
@@ -103,4 +107,15 @@ function next() {
         }
         tempmap.push(subarray);
     }
+}
+function randomize() {
+    currmap = [];
+    for (let i = 0; i < mapsize; i++) {
+        let subarray = [];
+        for (let j = 0; j < mapsize; j++) {
+            subarray.push(random());
+        }
+        currmap.push(subarray);
+    }
+    draw();
 }
