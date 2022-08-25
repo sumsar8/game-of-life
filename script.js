@@ -115,6 +115,17 @@ function randomize() {
     }
     draw();
 }
-setInterval(() => {
+var slider = document.getElementById("slider");
+let interval = slider.value;
+
+slider.oninput = function () {
+    interval = slider.value;
+};
+
+var counter = slider.value;
+var myFunction = function () {
+    counter = interval;
     next();
-}, 50);
+    setTimeout(myFunction, counter);
+};
+setTimeout(myFunction, counter);
