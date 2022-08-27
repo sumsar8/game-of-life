@@ -10,17 +10,24 @@
                 margin: 0;
                 display: flex;
             }
+            .buttons {
+                display: flex;
+                flex-direction: column;
+            }
         </style>
     </head>
-    <body>
-        <canvas
-            id="myCanvas"
-            width="1000"
-            height="950"
-            style="border: 1px solid #000000"
-        ></canvas>
-        <button onclick="randomize()" style="height: 40px">randomize</button>
-        <input type="range" min="1" max="300" value="150" id="slider" />
+    <body id="body" onmousedown="mousedown()" onmouseup="mouseup()">
+        <canvas id="myCanvas"></canvas>
+        <div class="buttons">
+            <button onclick="randomize()" style="height: 40px">
+                Randomize
+            </button>
+            <button onclick="clean()" style="height: 40px">Clear</button>
+            <button onclick="pause()" style="height: 40px" id="pausebutton">
+                Pause
+            </button>
+            <input type="range" min="5" max="300" value="150" id="slider" />
+        </div>
     </body>
     <script src="script.js"></script>
 </html>
